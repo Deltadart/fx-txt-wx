@@ -42,27 +42,61 @@
   .sub{font-size:15px;color:var(--muted);margin:0 0 26px}
   .sub b{color:var(--text);font-weight:600}
 
-  label.fld{display:block;font-size:13px;color:var(--muted);margin:0 0 8px}
+  label.fld,.fldlab{display:block;font-size:13px;color:var(--muted);margin:0 0 8px}
   .phone{display:flex;align-items:stretch;border:1px solid var(--line2);border-radius:14px;background:var(--surface);overflow:hidden;transition:border-color .2s}
   .phone:focus-within{border-color:var(--amber)}
   .phone .cc{display:flex;align-items:center;padding:0 13px;font-family:var(--f-mono);font-size:15px;color:var(--muted);border-right:1px solid var(--line);background:var(--surface2)}
-  .phone input{flex:1;border:none;background:none;color:var(--text);font-family:var(--f-mono);font-size:17px;letter-spacing:.02em;padding:16px 14px;outline:none}
+  .phone input{flex:1;min-width:0;border:none;background:none;color:var(--text);font-family:var(--f-mono);font-size:17px;letter-spacing:.02em;padding:16px 14px;outline:none}
   .phone input::placeholder{color:var(--muted2)}
 
   .codes{display:flex;gap:9px;justify-content:space-between;margin-bottom:8px}
-  .codes input{width:100%;aspect-ratio:1/1;text-align:center;border:1px solid var(--line2);border-radius:12px;background:var(--surface);color:var(--text);font-family:var(--f-mono);font-size:24px;outline:none;transition:border-color .15s,background .15s}
+  .codes input{width:100%;min-width:0;aspect-ratio:1/1;text-align:center;border:1px solid var(--line2);border-radius:12px;background:var(--surface);color:var(--text);font-family:var(--f-mono);font-size:24px;outline:none;transition:border-color .15s,background .15s}
   .codes input:focus{border-color:var(--amber);background:var(--surface2)}
 
   .langs{display:grid;gap:11px;margin-bottom:8px}
   .lang{display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;border:1px solid var(--line2);border-radius:14px;background:var(--surface);padding:16px;color:var(--text);font-family:var(--f-body);transition:border-color .18s,background .18s}
   .lang:hover{border-color:rgba(232,176,75,.5)}
   .lang[aria-pressed="true"]{border-color:var(--amber);background:var(--surface2)}
-  .lang .flagdot{width:34px;height:34px;border-radius:50%;background:var(--surface2);display:grid;place-items:center;font-size:16px;flex:none}
-  .lang[aria-pressed="true"] .flagdot{background:rgba(232,176,75,.16)}
+  .lang .code{width:38px;height:38px;border-radius:10px;background:var(--surface2);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--muted);flex:none}
+  .lang[aria-pressed="true"] .code{background:rgba(232,176,75,.16);color:var(--amber)}
   .lang .lt{font-family:var(--f-display);font-weight:600;font-size:16px}
   .lang .ls{font-size:12.5px;color:var(--muted)}
-  .lang .chk{margin-left:auto;width:20px;height:20px;opacity:0;transition:opacity .18s;flex:none}
+  .chk{margin-left:auto;width:20px;height:20px;opacity:0;transition:opacity .18s;flex:none}
   .lang[aria-pressed="true"] .chk{opacity:1}
+
+  /* Premium */
+  .prem{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;cursor:pointer;border:1px solid var(--line2);border-radius:14px;background:var(--surface);padding:15px 16px;color:var(--text);font-family:var(--f-body);transition:border-color .18s,background .18s}
+  .prem[aria-checked="true"]{border-color:var(--amber);background:var(--surface2);border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .box{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--muted);flex:none;display:grid;place-items:center;margin-top:1px}
+  .box svg{width:14px;height:14px;opacity:0}
+  .prem[aria-checked="true"] .box{background:var(--amber);border-color:var(--amber)}
+  .prem[aria-checked="true"] .box svg{opacity:1}
+  .prem .pt{font-family:var(--f-display);font-weight:600;font-size:15.5px;display:block}
+  .prem .pd{font-size:12.5px;color:var(--muted);display:block;margin-top:3px}
+  .cost{display:inline-block;font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--amber);border:1px solid rgba(232,176,75,.45);border-radius:99px;padding:1px 8px;margin-top:6px}
+  .prempanel{display:none;border:1px solid var(--amber);border-top:none;border-radius:0 0 14px 14px;background:var(--bg2);padding:14px 16px 8px}
+  .prempanel.open{display:block}
+  select{width:100%;appearance:none;-webkit-appearance:none;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238aa096' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;border:1px solid var(--line2);border-radius:12px;color:var(--text);font-family:var(--f-body);font-size:14px;padding:12px 38px 12px 13px;outline:none;margin-bottom:14px}
+  select:focus{border-color:var(--amber)}
+  .addon{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;cursor:pointer}
+  .addon input{accent-color:var(--amber);width:17px;height:17px;margin:0}
+  .addon .inc{margin-left:auto;font-family:var(--f-mono);font-size:11px;color:var(--cyan)}
+
+  /* Paquets de jetons */
+  .packgrid{display:grid;gap:10px;margin-top:22px}
+  .pk{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;border:1px solid var(--line2);border-radius:14px;background:var(--surface);padding:14px 16px;color:var(--text);font-family:var(--f-body);transition:border-color .18s,background .18s}
+  .pk:hover{border-color:rgba(232,176,75,.5)}
+  .pk[aria-checked="true"]{border-color:var(--amber);background:var(--surface2)}
+  .pk.star{border-width:1.5px}
+  .pk .radio{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--muted);flex:none;display:grid;place-items:center}
+  .pk[aria-checked="true"] .radio{border-color:var(--amber)}
+  .pk[aria-checked="true"] .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--amber)}
+  .pk .pkn{font-family:var(--f-display);font-weight:600;font-size:15px;display:block}
+  .pk .pks{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+  .pk .pkr{margin-left:auto;text-align:right;flex:none}
+  .pk .pkp{font-family:var(--f-mono);font-size:18px;font-weight:500;display:block}
+  .pk .pku{font-family:var(--f-mono);font-size:11px;color:var(--muted);display:block}
+  .badge{position:absolute;top:-10px;right:14px;background:var(--amber);color:#0b1512;font-size:11px;font-weight:600;border-radius:99px;padding:2px 10px}
 
   .btn{width:100%;cursor:pointer;font-family:var(--f-display);font-weight:600;font-size:16px;color:#0b1512;background:linear-gradient(180deg,var(--amber),var(--amber-deep));border:none;border-radius:14px;padding:16px;margin-top:18px;transition:filter .18s,transform .1s,opacity .2s}
   .btn:hover{filter:brightness(1.06)} .btn:active{transform:translateY(1px)}
@@ -76,56 +110,18 @@
   .textbox{border:1px solid var(--line2);border-radius:14px;background:var(--surface);padding:15px 16px;margin:22px 0 8px}
   .textbox .lab{font-size:12px;color:var(--muted);margin-bottom:5px}
   .textbox .num{font-family:var(--f-mono);font-size:20px;color:var(--amber);letter-spacing:.02em}
+  .textbox .num2{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:2px}
   .creditline{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--text);background:var(--surface2);border-radius:99px;padding:7px 14px;margin-bottom:4px}
   .creditline b{color:var(--cyan)}
-  .packs{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
-  .packs .ph{font-size:12.5px;color:var(--muted2);margin-bottom:12px}
-  .pack{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
-  .pack:last-child{border-bottom:none}
-  .pack .pn{font-size:14.5px} .pack .pn small{color:var(--muted);font-size:12.5px}
-  .pack .pp{font-family:var(--f-mono);font-size:15px;color:var(--text)}
+  .summary{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .summary div{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
+  .summary b{color:var(--text);font-weight:500;text-align:right}
   .foot{margin-top:auto;padding-top:28px;text-align:center;font-size:11.5px;color:var(--muted2)}
   .foot .proto{display:block;margin-top:5px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted2)}
 
-  /* ---- Animation « comment ça marche » (pleine largeur, cinématique, sans texte) ---- */
-  .howto{position:relative;width:100%;height:210px;margin:2px 0 26px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 62% 30%, #14261e 0%, #0b1512 72%)}
-  .howto .stage{position:absolute;inset:0;transform-origin:56% 44%;transition:transform 1.15s ease-in, opacity .9s ease-in}
-  .howto.s1 .stage{transform:scale(1);opacity:1}
-  .howto.s2 .stage,.howto.s3 .stage,.howto.s4 .stage,.howto.s5 .stage{transform:scale(2.7);opacity:0}
-  .howto .star{fill:#eaf2ed;opacity:.22}
-  .howto .sat{transition:filter .3s} .howto.s1 .sat{filter:drop-shadow(0 0 4px var(--cyan))}
-  .howto .wave{fill:none;stroke:var(--cyan);stroke-width:1.5;stroke-linecap:round;opacity:0}
-  .howto.s1 .wave{animation:seek 1.8s ease-in-out infinite}
-  .howto.s1 .wave.w2{animation-delay:.45s} .howto.s1 .wave.w3{animation-delay:.9s}
-  @keyframes seek{0%,100%{opacity:0}45%{opacity:.85}}
-  .howto .phoneglow{animation:glow 1.3s ease-in-out infinite alternate}
-  @keyframes glow{from{opacity:.6}to{opacity:1}}
-
-  .phonewrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}
-  .uplink{position:absolute;left:50%;top:-4px;transform:translateX(-50%);display:flex;gap:4px;opacity:0}
-  .uplink i{width:4px;height:4px;border-radius:50%;background:var(--cyan)}
-  .howto.s4 .uplink{animation:up .9s ease-out}
-  @keyframes up{0%{opacity:0;transform:translate(-50%,7px)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,-18px)}}
-  .hp{width:150px;height:158px;background:linear-gradient(#0d1a15,#0b1512);border:1px solid var(--line2);border-radius:20px;padding:7px;box-shadow:0 16px 34px -16px rgba(0,0,0,.75);opacity:0;transform:scale(.5);transition:transform .9s cubic-bezier(.2,.7,.3,1), opacity .7s}
-  .howto.s2 .hp,.howto.s3 .hp,.howto.s4 .hp,.howto.s5 .hp{opacity:1;transform:scale(1)}
-  .hp-screen{background:var(--bg2);border-radius:14px;height:100%;display:flex;flex-direction:column;overflow:hidden}
-  .hp-bar{display:flex;align-items:center;gap:6px;padding:6px 9px;border-bottom:1px solid var(--line);opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s}
-  .howto.s2 .hp-bar,.howto.s3 .hp-bar,.howto.s4 .hp-bar,.howto.s5 .hp-bar{opacity:1;transform:none}
-  .hp-bar .dot{width:15px;height:15px;border-radius:50%;background:rgba(232,176,75,.18);display:grid;place-items:center;flex:none}
-  .hp-to{font-family:var(--f-mono);font-size:9px;color:var(--amber);letter-spacing:.01em}
-  .hp-thread{flex:1;padding:8px;display:flex;flex-direction:column;gap:6px;justify-content:flex-end}
-  .hp-sent{align-self:flex-end;max-width:82%;background:linear-gradient(#1f7a63,#17624f);color:#eafff8;font-family:var(--f-mono);font-size:9px;padding:5px 8px;border-radius:10px;border-bottom-right-radius:3px;opacity:0;transform:translateY(6px) scale(.96);transition:opacity .35s,transform .35s}
-  .howto.s4 .hp-sent,.howto.s5 .hp-sent{opacity:1;transform:none}
-  .hp-reply{align-self:flex-start;max-width:84%;background:var(--surface);border:1px solid var(--line);border-radius:10px;border-bottom-left-radius:3px;padding:5px 8px;display:flex;align-items:center;gap:5px;opacity:0;transform:translateY(6px) scale(.96);transition:opacity .4s,transform .4s}
-  .howto.s5 .hp-reply{opacity:1;transform:none}
-  .hp-reply .tmp{font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--text)}
-  .hp-reply svg{width:15px;height:15px;flex:none}
-  .hp-compose{display:flex;align-items:center;padding:6px 8px;border-top:1px solid var(--line);min-height:26px;opacity:0;transition:opacity .3s}
-  .howto.s3 .hp-compose{opacity:1}
-  .hp-chip{font-family:var(--f-mono);font-size:9px;color:var(--text);background:var(--surface2);border-radius:8px;padding:4px 7px;opacity:0;transform:translateY(5px);transition:opacity .3s,transform .3s}
-  .howto.s3 .hp-chip{opacity:1;transform:none;animation:pasteflash .6s ease}
-  @keyframes pasteflash{0%{box-shadow:0 0 0 0 rgba(232,176,75,.55)}100%{box-shadow:0 0 0 7px rgba(232,176,75,0)}}
-  .howto.reset .stage,.howto.reset .hp{transition:none}
+  /* Animation « comment ça marche » — sans texte, neutre en langue et en genre */
+  .howto{width:100%;margin:2px 0 26px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#2a4536}
+  .howto svg{display:block;width:100%;height:auto}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -147,62 +143,83 @@
     </div>
   </div>
 
-  <div class="dots"><i id="d1" class="on"></i><i id="d2"></i><i id="d3"></i></div>
+  <div class="dots"><i id="d1" class="on"></i><i id="d2"></i><i id="d3"></i><i id="d4"></i></div>
 
-  <!-- Step 1 : number -->
+  <!-- Étape 1 : numéro -->
   <section class="step active" id="s1">
     <h2 data-k="s1h">Get your weather by text</h2>
     <p class="sub" data-k="s1sub">Forecasts for your exact location, even with no cell coverage — through your phone's satellite.</p>
 
-    <div class="howto s1" id="howto" aria-hidden="true">
-      <svg class="stage" viewBox="0 0 360 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <circle class="star" cx="40" cy="26" r="1.3"/><circle class="star" cx="120" cy="18" r="1"/><circle class="star" cx="250" cy="24" r="1.2"/><circle class="star" cx="330" cy="60" r="1"/><circle class="star" cx="200" cy="40" r="1"/>
-        <g fill="#0f1a15">
-          <path d="M2 210 L22 168 L44 210Z"/><path d="M34 210 L50 180 L68 210Z"/>
-          <path d="M214 210 L234 166 L256 210Z"/><path d="M248 210 L262 182 L278 210Z"/>
-          <path d="M292 210 L312 170 L334 210Z"/><path d="M326 210 L340 184 L356 210Z"/>
-        </g>
-        <g class="sat">
-          <rect x="278" y="40" width="13" height="8" rx="1.5" fill="#1c3227" stroke="#6bd0e0" stroke-width="1"/>
-          <rect x="305" y="40" width="13" height="8" rx="1.5" fill="#1c3227" stroke="#6bd0e0" stroke-width="1"/>
-          <rect x="292" y="36" width="11" height="16" rx="3" fill="#16261f" stroke="#eaf2ed" stroke-width="1.1"/>
-        </g>
-        <path class="wave"    d="M205 88 A 13 13 0 0 1 216 76"/>
-        <path class="wave w2" d="M210 93 A 22 22 0 0 1 227 72"/>
-        <path class="wave w3" d="M215 98 A 31 31 0 0 1 238 68"/>
-        <g class="person">
-          <g stroke="#2f5142" stroke-width="7" stroke-linecap="round" fill="none">
-            <path d="M146 165 L139 200"/><path d="M154 165 L161 200"/>
-            <path d="M142 134 L135 160"/><path d="M157 133 L193 92"/>
+    <div class="howto" aria-hidden="true">
+      <svg id="anim" viewBox="0 0 360 240">
+        <rect id="a-sky" width="360" height="240" fill="#2A4536"/>
+        <circle id="a-sun" cx="300" cy="100" r="14" fill="#E8B04B"/>
+        <g id="a-sat"><rect x="-5" y="-3" width="10" height="6" fill="#EAF2ED"/><rect x="-18" y="-1.5" width="12" height="3" fill="#6BD0E0"/><rect x="6" y="-1.5" width="12" height="3" fill="#6BD0E0"/><circle cx="0" cy="-5.5" r="1.5" fill="#E8B04B"/></g>
+        <path d="M0 150 L50 112 L95 140 L145 100 L200 138 L250 108 L310 145 L360 120 L360 180 L0 180Z" fill="#1F362A"/>
+        <path d="M0 165 L65 138 L120 160 L180 130 L240 157 L305 138 L360 160 L360 182 L0 182Z" fill="#172B22"/>
+        <g id="a-forest" fill="#11221B"></g>
+        <rect id="a-lake" x="0" y="181" width="360" height="59" fill="#1A2F27"/>
+        <g stroke="#EAF2ED" stroke-opacity=".12" stroke-width="1.2"><line x1="215" y1="196" x2="250" y2="196"/><line x1="290" y1="210" x2="335" y2="210"/><line x1="240" y1="226" x2="270" y2="226"/></g>
+        <path d="M0 240 L0 172 Q90 166 190 186 L210 240Z" fill="#0E1A16"/>
+        <polygon points="40,190 66,158 92,190" fill="#3A5A48"/>
+        <polygon points="60,190 66,172 72,190" fill="#0B1512"/>
+        <polygon id="a-glow" points="60,190 66,172 72,190" fill="#E8B04B" opacity="0"/>
+        <g id="a-walk"><g transform="translate(140 192) scale(.62) translate(-240 -302)">
+          <rect x="232" y="282" width="6" height="20" fill="#0B1512"/><rect x="243" y="282" width="6" height="20" fill="#0B1512"/>
+          <path d="M226 286 L230 246 Q240 236 250 246 L254 286Z" fill="#8AA096"/>
+          <circle cx="240" cy="236" r="11" fill="#8AA096"/><ellipse cx="242" cy="238" rx="6" ry="7" fill="#0B1512"/>
+          <line id="a-armDown" x1="249" y1="252" x2="255" y2="276" stroke="#8AA096" stroke-width="5" stroke-linecap="round"/>
+          <g id="a-armUp" opacity="0"><line x1="249" y1="252" x2="261" y2="240" stroke="#8AA096" stroke-width="5" stroke-linecap="round"/><rect x="258" y="228" width="8" height="12" rx="1.5" fill="#0B1512"/><rect x="259.5" y="230" width="5" height="7" fill="#E8B04B"/></g>
+        </g></g>
+        <line id="a-up" x1="154" y1="146" x2="0" y2="0" stroke="#E8B04B" stroke-width="2" stroke-dasharray="5 6" opacity="0"/>
+        <line id="a-down" x1="154" y1="146" x2="0" y2="0" stroke="#6BD0E0" stroke-width="2" stroke-dasharray="1.5 5" stroke-linecap="round" opacity="0"/>
+        <g id="a-storm"><g transform="scale(.55)"><ellipse cx="60" cy="80" rx="50" ry="28" fill="#3B5446"/><ellipse cx="120" cy="64" rx="60" ry="35" fill="#3B5446"/><ellipse cx="190" cy="82" rx="52" ry="28" fill="#3B5446"/><ellipse cx="125" cy="96" rx="110" ry="22" fill="#324A3D"/><polygon id="a-bolt" points="130,110 116,150 128,150 118,186 146,138 133,138 142,110" fill="#E8B04B" opacity="0"/></g></g>
+        <g id="a-rain" stroke="#8AA096" stroke-width="1.2" opacity="0"></g>
+        <rect id="a-veil" width="360" height="240" fill="#2A4536" opacity="0"/>
+        <g id="a-phone">
+          <rect x="218" y="14" width="130" height="212" rx="16" fill="#0B1512" stroke="#63786D" stroke-width="1"/>
+          <rect x="225" y="24" width="116" height="192" rx="10" fill="#16261F"/>
+          <g id="a-p1">
+            <rect x="262" y="82" width="7" height="8" fill="#63786D"/><rect x="272" y="76" width="7" height="14" fill="#63786D"/><rect x="282" y="70" width="7" height="20" fill="#63786D"/><rect x="292" y="64" width="7" height="26" fill="#63786D"/>
+            <line x1="256" y1="96" x2="306" y2="56" stroke="#E8B04B" stroke-width="3.5" stroke-linecap="round"/>
+            <ellipse cx="283" cy="152" rx="24" ry="11" fill="#3B5446"/><circle cx="273" cy="144" r="10" fill="#3B5446"/><circle cx="291" cy="141" r="12" fill="#3B5446"/>
+            <text x="283" y="158" text-anchor="middle" font-size="20" font-weight="600" fill="#EAF2ED" font-family="Inter,system-ui,sans-serif">?</text>
           </g>
-          <circle cx="150" cy="117" r="10" fill="#2f5142"/>
-          <rect x="139" y="126" width="22" height="42" rx="9" fill="#2f5142"/>
-          <rect x="191" y="79" width="12" height="18" rx="2.5" fill="#16261f" stroke="#e8b04b" stroke-width="1.2"/>
-          <rect class="phoneglow" x="193.5" y="81.5" width="7" height="13" rx="1" fill="#e8b04b"/>
+          <g id="a-p2" opacity="0" font-family="'JetBrains Mono',ui-monospace,monospace">
+            <text x="283" y="42" text-anchor="middle" font-size="10.5" fill="#8AA096">365-FX-TXT-WX</text>
+            <rect x="278" y="58" width="10" height="6" fill="#EAF2ED"/><rect x="264" y="59.5" width="12" height="3" fill="#6BD0E0"/><rect x="290" y="59.5" width="12" height="3" fill="#6BD0E0"/>
+            <line x1="283" y1="72" x2="283" y2="110" stroke="#E8B04B" stroke-width="1.6" stroke-dasharray="3 4"/>
+            <path d="M283 150 C275 139 273 134 273 128 A10 10 0 0 1 293 128 C293 134 291 139 283 150Z" fill="#E8B04B"/><circle cx="283" cy="128" r="3.5" fill="#16261F"/>
+            <text x="283" y="172" text-anchor="middle" font-size="12" fill="#EAF2ED">45.53, -73.35</text>
+            <circle class="a-dot" cx="273" cy="196" r="3" fill="#E8B04B"/><circle class="a-dot" cx="283" cy="196" r="3" fill="#E8B04B"/><circle class="a-dot" cx="293" cy="196" r="3" fill="#E8B04B"/>
+          </g>
+          <g id="a-p3" opacity="0" font-family="'JetBrains Mono',ui-monospace,monospace">
+            <text x="283" y="42" text-anchor="middle" font-size="10.5" fill="#8AA096">365-FX-TXT-WX</text>
+            <text x="233" y="74" font-size="12" fill="#EAF2ED">+1h</text>
+            <ellipse cx="280" cy="71" rx="11" ry="5.5" fill="#8AA096"/><circle cx="275" cy="67" r="5.5" fill="#8AA096"/><circle cx="285" cy="65.5" r="6.5" fill="#8AA096"/>
+            <text x="334" y="74" text-anchor="end" font-size="12" fill="#EAF2ED">14°</text>
+            <rect x="229" y="88" width="108" height="36" rx="5" fill="#2B2A17" stroke="#E8B04B" stroke-width="1"/>
+            <text x="233" y="110" font-size="12" fill="#E8B04B">+2h</text>
+            <ellipse cx="280" cy="103" rx="11" ry="5.5" fill="#63786D"/><circle cx="275" cy="99" r="5.5" fill="#63786D"/><circle cx="285" cy="97.5" r="6.5" fill="#63786D"/>
+            <polygon points="279,107 274,116 279,116 276,122 286,111 281,111 284,107" fill="#E8B04B"/>
+            <text x="334" y="110" text-anchor="end" font-size="12" fill="#E8B04B">11°</text>
+            <text x="233" y="148" font-size="12" fill="#EAF2ED">+6h</text>
+            <circle cx="280" cy="144" r="6.5" fill="none" stroke="#E8B04B" stroke-width="2"/>
+            <text x="334" y="148" text-anchor="end" font-size="12" fill="#EAF2ED">16°</text>
+            <line x1="235" y1="181" x2="252" y2="181" stroke="#8AA096" stroke-width="1.6"/><polyline points="247,176.5 253,181 247,185.5" fill="none" stroke="#8AA096" stroke-width="1.6"/>
+            <text x="260" y="185" font-size="11" fill="#EAF2ED">35 km/h</text>
+          </g>
         </g>
       </svg>
-      <div class="phonewrap">
-        <div class="uplink"><i></i><i></i><i></i></div>
-        <div class="hp">
-          <div class="hp-screen">
-            <div class="hp-bar"><span class="dot"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M4 15a6 6 0 0 1 11-3.3A4.5 4.5 0 1 1 16 20H7a5 5 0 0 1-3-5Z" stroke="#e8b04b" stroke-width="2"/></svg></span><span class="hp-to">365-FX-TXT-WX</span></div>
-            <div class="hp-thread">
-              <div class="hp-sent">46.35, -75.45</div>
-              <div class="hp-reply"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" fill="#e8b04b"/><g stroke="#e8b04b" stroke-width="1.6" stroke-linecap="round"><path d="M12 3.5v2"/><path d="M12 18.5v2"/><path d="M3.5 12h2"/><path d="M18.5 12h2"/><path d="M6 6l1.4 1.4"/><path d="M16.6 16.6L18 18"/><path d="M18 6l-1.4 1.4"/><path d="M7.4 16.6L6 18"/></g></svg><span class="tmp">14°</span></div>
-            </div>
-            <div class="hp-compose"><span class="hp-chip">46.35, -75.45</span></div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <label class="fld" for="tel" data-k="s1label">Your mobile number</label>
-    <div class="phone"><span class="cc">🇨🇦&nbsp;+1</span><input id="tel" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="514 555 1234" maxlength="14"></div>
+    <div class="phone"><span class="cc">+1</span><input id="tel" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="514 555 1234" maxlength="14"></div>
     <button class="btn" id="send" data-k="s1btn" disabled>Get my code</button>
     <p class="hint" data-k="s1hint">We'll text you a 6-digit code. No password to remember.</p>
   </section>
 
-  <!-- Step 2 : code -->
+  <!-- Étape 2 : code -->
   <section class="step" id="s2">
     <button class="back" id="back2" data-k="s2back">← Change number</button>
     <h2 data-k="s2h">Enter your code</h2>
@@ -214,32 +231,61 @@
     <p class="hint"><span data-k="s2resendq">Didn't get it?</span> <a class="link" id="resend" data-k="s2resend">Resend code</a></p>
   </section>
 
-  <!-- Step 3 : forecast language -->
+  <!-- Étape 3 : langue des prévisions -->
   <section class="step" id="s3">
     <h2 data-k="s3h">Forecast language</h2>
     <p class="sub" data-k="s3sub">Your weather texts will arrive in this language. You can change it later.</p>
     <div class="langs" id="langs">
-      <button class="lang" data-lang="fr" aria-pressed="false"><span class="flagdot">🇫🇷</span><span><span class="lt">Français</span><br><span class="ls" data-k="lsfr">Forecasts in French</span></span><svg class="chk" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#e8b04b"/><path d="M7 12.5l3 3 7-7" stroke="#0b1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="lang" data-lang="en" aria-pressed="false"><span class="flagdot">🇬🇧</span><span><span class="lt">English</span><br><span class="ls" data-k="lsen">Forecasts in English</span></span><svg class="chk" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#e8b04b"/><path d="M7 12.5l3 3 7-7" stroke="#0b1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang" data-lang="en" aria-pressed="false"><span class="code">EN</span><span><span class="lt">English</span><br><span class="ls" data-k="lsen">Forecasts in English</span></span><svg class="chk" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#e8b04b"/><path d="M7 12.5l3 3 7-7" stroke="#0b1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang" data-lang="fr" aria-pressed="false"><span class="code">FR</span><span><span class="lt">Français</span><br><span class="ls" data-k="lsfr">Forecasts in French</span></span><svg class="chk" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#e8b04b"/><path d="M7 12.5l3 3 7-7" stroke="#0b1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
-    <button class="btn" id="finish" data-k="s3btn" disabled>Create my account</button>
+    <button class="btn" id="tostep4" data-k="s3btn" disabled>Continue</button>
   </section>
 
-  <!-- Step 4 : success -->
+  <!-- Étape 4 : premium + jetons -->
   <section class="step" id="s4">
-    <div class="seal"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#6bd0e0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <h2 data-k="s4h">Welcome!</h2>
-    <p class="sub" data-k="s4sub">Your account is ready. Here's how to get your first forecast.</p>
-    <span class="creditline" data-kh="s4credit">🎁 <span><b>3 free</b> trial credits</span></span>
-    <div class="textbox"><div class="lab" data-k="s4lab">Text your coordinates to this number:</div><div class="num">365-398-9899</div></div>
-    <p class="hint" data-k="s4hint">Open your phone's Compass app to read your position, then text it to this number.</p>
-    <div class="packs">
-      <div class="ph" data-k="s4soon">Soon — top up your credits in seconds:</div>
-      <div class="pack"><span class="pn" data-kh="p1n">Pay as you go <small>· handy</small></span><span class="pp" data-k="p1p">$2 / credit</span></div>
-      <div class="pack"><span class="pn" data-kh="p2n">10 credits <small>· popular</small></span><span class="pp">$15</span></div>
-      <div class="pack"><span class="pn" data-kh="p3n">25 credits <small>· best value</small></span><span class="pp">$25</span></div>
+    <button class="back" id="back4" data-k="s4back">← Back</button>
+    <h2 data-k="s4h">Customize and get tokens</h2>
+    <p class="sub" data-k="s4sub">1 token = 1 forecast. A premium reply costs 3 tokens. You can change everything anytime.</p>
+
+    <button class="prem" id="prem" role="checkbox" aria-checked="false">
+      <span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0b1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><span class="pt" data-k="premh">Reply with premium data</span><span class="pd" data-k="premd">Richer forecasts for how you use them — fishing, hunting, marine, or a “plus” profile.</span><span class="cost" data-k="premcost">3 tokens / forecast</span></span>
+    </button>
+    <div class="prempanel" id="prempanel">
+      <label class="fldlab" for="profile" data-k="proflabel">Profile</label>
+      <select id="profile">
+        <option value="std" data-k="prof_std">Standard+ — hourly and extended forecast</option>
+        <option value="fish" data-k="prof_fish">Fishing — water temp, moon phase, pressure trend</option>
+        <option value="hunt" data-k="prof_hunt">Hunting — hourly wind, dawn and dusk, humidity</option>
+        <option value="mar" data-k="prof_mar">Marine — waves, tides, wind in knots</option>
+      </select>
+      <div class="fldlab" data-k="addonslabel">Options</div>
+      <label class="addon"><input type="checkbox" checked> <span data-k="addon_alerts">Severe weather alerts</span><span class="inc" data-k="addon_free">included</span></label>
+      <label class="addon"><input type="checkbox"> <span data-k="addon_uv">UV index</span><span class="inc" data-k="addon_free">included</span></label>
+      <label class="addon"><input type="checkbox"> <span data-k="addon_ext">5-day extended forecast</span><span class="inc" data-k="addon_free">included</span></label>
     </div>
-    <p class="hint" style="margin-top:22px"><a class="link" id="restart" data-k="s4restart">↺ Restart preview</a></p>
+
+    <div class="packgrid" role="radiogroup" aria-labelledby="pickpack">
+      <div class="fldlab" id="pickpack" data-k="pickpack" style="margin:0">Choose your token pack</div>
+      <button class="pk" data-pack="s" role="radio" aria-checked="false"><span class="radio"></span><span><span class="pkn" data-k="pack_s_n">Starter · 10 tokens</span><span class="pks" data-k="pack_s_s">≈ 10 basic or 3 premium forecasts</span></span><span class="pkr"><span class="pkp" data-kh="pack_s_p">$8</span><span class="pku" data-kh="pack_s_pu">$0.80 / token</span></span></button>
+      <button class="pk star" data-pack="m" role="radio" aria-checked="true"><span class="badge" data-k="popular">Most popular</span><span class="radio"></span><span><span class="pkn" data-k="pack_m_n">Regular · 30 tokens</span><span class="pks" data-k="pack_m_s">≈ 30 basic or 10 premium forecasts</span></span><span class="pkr"><span class="pkp" data-kh="pack_m_p">$20</span><span class="pku" data-kh="pack_m_pu">$0.67 / token</span></span></button>
+      <button class="pk" data-pack="l" role="radio" aria-checked="false"><span class="radio"></span><span><span class="pkn" data-k="pack_l_n">Explorer · 75 tokens</span><span class="pks" data-k="pack_l_s">≈ 75 basic or 25 premium forecasts</span></span><span class="pkr"><span class="pkp" data-kh="pack_l_p">$40</span><span class="pku" data-kh="pack_l_pu">$0.53 / token</span></span></button>
+    </div>
+    <button class="btn" id="topay" data-k="s4btn">Continue to payment</button>
+    <p class="hint" data-k="s4hint">Payment happens on the next step, right on this page. Your card is never stored by us.</p>
+  </section>
+
+  <!-- Étape 5 : bienvenue -->
+  <section class="step" id="s5">
+    <div class="seal"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#6bd0e0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2 data-k="s5h">Welcome!</h2>
+    <p class="sub" data-k="s5sub">Your account is ready. Here's how to get your first forecast.</p>
+    <span class="creditline" data-kh="s5credit">🎁 <span><b>3 free</b> tokens to get started</span></span>
+    <div class="textbox"><div class="lab" data-k="s5lab">Text your coordinates to this number:</div><div class="num">365-FX-TXT-WX</div><div class="num2">+1 365 398 9899</div></div>
+    <p class="hint" data-k="s5hint">In Apple Maps or Google Maps, long-press your spot, tap Share, and send it to this number.</p>
+    <div class="summary" id="summary"></div>
+    <p class="hint" style="margin-top:22px"><a class="link" id="restart" data-k="s5restart">↺ Restart preview</a></p>
   </section>
 
   <div class="foot"><span data-k="footbrand">FX-TXT-WX — weather by satellite</span><span class="proto" data-k="proto">preview · prototype</span></div>
@@ -261,15 +307,30 @@
       codeA:"Texted to ", codeB:".",
       s3h:"Forecast language",
       s3sub:"Your weather texts will arrive in this language. You can change it later.",
-      lsfr:"Forecasts in French", lsen:"Forecasts in English", s3btn:"Create my account",
-      s4h:"Welcome!", s4sub:"Your account is ready. Here's how to get your first forecast.",
-      s4credit:"🎁 <span><b>3 free</b> trial credits</span>",
-      s4lab:"Text your coordinates to this number:",
-      s4hint:"Open your phone's Compass app to read your position, then text it to this number.",
-      s4soon:"Soon — top up your credits in seconds:",
-      p1n:"Pay as you go <small>· handy</small>", p1p:"$2 / credit",
-      p2n:"10 credits <small>· popular</small>", p3n:"25 credits <small>· best value</small>",
-      s4restart:"↺ Restart preview",
+      lsfr:"Forecasts in French", lsen:"Forecasts in English", s3btn:"Continue",
+      s4back:"← Back",
+      s4h:"Customize and get tokens",
+      s4sub:"1 token = 1 forecast. A premium reply costs 3 tokens. You can change everything anytime.",
+      premh:"Reply with premium data", premcost:"3 tokens / forecast",
+      premd:"Richer forecasts for how you use them — fishing, hunting, marine, or a “plus” profile.",
+      proflabel:"Profile",
+      prof_std:"Standard+ — hourly and extended forecast",
+      prof_fish:"Fishing — water temp, moon phase, pressure trend",
+      prof_hunt:"Hunting — hourly wind, dawn and dusk, humidity",
+      prof_mar:"Marine — waves, tides, wind in knots",
+      addonslabel:"Options", addon_alerts:"Severe weather alerts", addon_uv:"UV index", addon_ext:"5-day extended forecast", addon_free:"included",
+      pickpack:"Choose your token pack", popular:"Most popular",
+      pack_s_n:"Starter · 10 tokens",  pack_s_s:"≈ 10 basic or 3 premium forecasts",  pack_s_p:"$8",  pack_s_pu:"$0.80 / token",
+      pack_m_n:"Regular · 30 tokens",  pack_m_s:"≈ 30 basic or 10 premium forecasts", pack_m_p:"$20", pack_m_pu:"$0.67 / token",
+      pack_l_n:"Explorer · 75 tokens", pack_l_s:"≈ 75 basic or 25 premium forecasts", pack_l_p:"$40", pack_l_pu:"$0.53 / token",
+      s4btn:"Continue to payment",
+      s4hint:"Payment happens on the next step, right on this page. Your card is never stored by us.",
+      s5h:"Welcome!", s5sub:"Your account is ready. Here's how to get your first forecast.",
+      s5credit:"🎁 <span><b>3 free</b> tokens to get started</span>",
+      s5lab:"Text your coordinates to this number:",
+      s5hint:"In Apple Maps or Google Maps, long-press your spot, tap Share, and send it to this number.",
+      sumPack:"Token pack", sumReply:"Replies", sumBasic:"Standard · 1 token", sumPrem:"Premium · 3 tokens",
+      s5restart:"↺ Restart preview",
       footbrand:"FX-TXT-WX — weather by satellite", proto:"preview · prototype"
     },
     fr:{
@@ -283,25 +344,47 @@
       codeA:"Envoyé par texto au ", codeB:".",
       s3h:"Ta langue de prévisions",
       s3sub:"Tes textos météo arriveront dans cette langue. Tu pourras la changer plus tard.",
-      lsfr:"Prévisions en français", lsen:"Prévisions en anglais", s3btn:"Créer mon compte",
-      s4h:"Bienvenue!", s4sub:"Ton compte est prêt. Voici comment obtenir ta première prévision.",
-      s4credit:"🎁 <span><b>3 crédits</b> d'essai offerts</span>",
-      s4lab:"Texte tes coordonnées à ce numéro :",
-      s4hint:"Ouvre l'app Boussole de ton téléphone pour lire ta position, puis texte-la à ce numéro.",
-      s4soon:"Bientôt — recharge tes crédits en quelques secondes :",
-      p1n:"À la carte <small>· pratique</small>", p1p:"2&nbsp;$ / crédit",
-      p2n:"10 crédits <small>· populaire</small>", p3n:"25 crédits <small>· meilleur prix</small>",
-      s4restart:"↺ Recommencer l'aperçu",
+      lsfr:"Prévisions en français", lsen:"Prévisions en anglais", s3btn:"Continuer",
+      s4back:"← Retour",
+      s4h:"Personnalise et obtiens des jetons",
+      s4sub:"1 jeton = 1 prévision. Une réponse premium coûte 3 jetons. Tu peux tout changer en tout temps.",
+      premh:"Répondre avec des données premium", premcost:"3 jetons / prévision",
+      premd:"Prévisions enrichies selon ton usage — pêche, chasse, marine, ou un profil « plus ».",
+      proflabel:"Profil",
+      prof_std:"Standard+ — prévision horaire et étendue",
+      prof_fish:"Pêche — temp. de l'eau, phase lunaire, tendance de pression",
+      prof_hunt:"Chasse — vent heure par heure, aube et crépuscule, humidité",
+      prof_mar:"Marine — vagues, marées, vent en nœuds",
+      addonslabel:"Options", addon_alerts:"Alertes météo sévère", addon_uv:"Indice UV", addon_ext:"Prévision étendue à 5 jours", addon_free:"inclus",
+      pickpack:"Choisis ton paquet de jetons", popular:"Le plus populaire",
+      pack_s_n:"Découverte · 10 jetons",  pack_s_s:"≈ 10 prévisions de base ou 3 premium",  pack_s_p:"8&nbsp;$",  pack_s_pu:"0,80&nbsp;$ / jeton",
+      pack_m_n:"Régulier · 30 jetons",    pack_m_s:"≈ 30 prévisions de base ou 10 premium", pack_m_p:"20&nbsp;$", pack_m_pu:"0,67&nbsp;$ / jeton",
+      pack_l_n:"Explorateur · 75 jetons", pack_l_s:"≈ 75 prévisions de base ou 25 premium", pack_l_p:"40&nbsp;$", pack_l_pu:"0,53&nbsp;$ / jeton",
+      s4btn:"Continuer au paiement",
+      s4hint:"Le paiement se fait à l'étape suivante, directement sur cette page. Ta carte n'est jamais stockée chez nous.",
+      s5h:"Bienvenue!", s5sub:"Ton compte est prêt. Voici comment obtenir ta première prévision.",
+      s5credit:"🎁 <span><b>3 jetons</b> offerts pour commencer</span>",
+      s5lab:"Texte tes coordonnées à ce numéro :",
+      s5hint:"Dans Plans ou Google Maps, appuie longuement sur ta position, touche Partager et envoie-la à ce numéro.",
+      sumPack:"Paquet de jetons", sumReply:"Réponses", sumBasic:"Standard · 1 jeton", sumPrem:"Premium · 3 jetons",
+      s5restart:"↺ Recommencer l'aperçu",
       footbrand:"FX-TXT-WX — météo par satellite", proto:"aperçu · prototype"
     }
   };
 
-  let pageLang="en", step=1, maskedVal="+1 ••• ••• ••••";
-  const dots=[$("#d1"),$("#d2"),$("#d3")];
+  let pageLang="en", step=1, maskedVal="+1 ••• ••• ••••", pack="m";
+  const dots=[$("#d1"),$("#d2"),$("#d3"),$("#d4")];
 
   function updateCodeSub(){
     const t=L[pageLang];
     $("#codesub").innerHTML = t.codeA + '<b id="masked">'+maskedVal+'</b>' + t.codeB;
+  }
+  function updateSummary(){
+    const t=L[pageLang], prem=$("#prem").getAttribute("aria-checked")==="true";
+    const profName=prem ? " — "+$("#profile").selectedOptions[0].textContent.split(" — ")[0] : "";
+    $("#summary").innerHTML =
+      '<div><span>'+t.sumPack+'</span><b>'+t["pack_"+pack+"_n"]+' · '+t["pack_"+pack+"_p"]+'</b></div>'+
+      '<div><span>'+t.sumReply+'</span><b>'+(prem ? t.sumPrem+profName : t.sumBasic)+'</b></div>';
   }
   function setLang(lang){
     pageLang=lang;
@@ -309,7 +392,7 @@
     const t=L[lang];
     $$("[data-k]").forEach(el=>{ const k=el.getAttribute("data-k"); if(t[k]!=null) el.textContent=t[k]; });
     $$("[data-kh]").forEach(el=>{ const k=el.getAttribute("data-kh"); if(t[k]!=null) el.innerHTML=t[k]; });
-    updateCodeSub();
+    updateCodeSub(); updateSummary();
     $$("#pagelang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.page===lang));
   }
   $$("#pagelang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.page)));
@@ -318,11 +401,11 @@
     step=n;
     $$(".step").forEach(s=>s.classList.remove("active"));
     $("#s"+n).classList.add("active");
-    dots.forEach((d,i)=>{ d.classList.toggle("done", i<n-1); d.classList.toggle("on", i===n-1 && n<4); });
+    dots.forEach((d,i)=>{ d.classList.toggle("done", i<n-1); d.classList.toggle("on", i===n-1 && n<5); });
     window.scrollTo(0,0);
   }
 
-  // Step 1
+  // Étape 1
   const tel=$("#tel"), send=$("#send");
   tel.addEventListener("input",()=>{
     let v=tel.value.replace(/\D/g,"").slice(0,10), out=v;
@@ -336,7 +419,7 @@
     updateCodeSub(); show(2); setTimeout(()=>codeInputs[0].focus(),120);
   });
 
-  // Step 2
+  // Étape 2
   const codeInputs=$$("#code input"), verify=$("#verify");
   const codeVal=()=>codeInputs.map(i=>i.value).join("");
   codeInputs.forEach((inp,i)=>{
@@ -347,42 +430,93 @@
   $("#back2").addEventListener("click",()=>show(1));
   $("#resend").addEventListener("click",()=>{ codeInputs.forEach(i=>i.value=""); codeInputs[0].focus(); verify.disabled=true; });
 
-  // Step 3
-  const finish=$("#finish");
+  // Étape 3
+  const tostep4=$("#tostep4");
   $$(".lang").forEach(b=>b.addEventListener("click",()=>{
     $$(".lang").forEach(x=>x.setAttribute("aria-pressed","false"));
-    b.setAttribute("aria-pressed","true"); finish.disabled=false;
+    b.setAttribute("aria-pressed","true"); tostep4.disabled=false;
   }));
-  finish.addEventListener("click",()=>show(4));
+  tostep4.addEventListener("click",()=>show(4));
 
-  // Step 4
+  // Étape 4
+  const prem=$("#prem"), panel=$("#prempanel");
+  prem.addEventListener("click",()=>{
+    const on=prem.getAttribute("aria-checked")!=="true";
+    prem.setAttribute("aria-checked",on); panel.classList.toggle("open",on); updateSummary();
+  });
+  $("#profile").addEventListener("change",updateSummary);
+  $$(".pk").forEach(b=>b.addEventListener("click",()=>{
+    $$(".pk").forEach(x=>x.setAttribute("aria-checked","false"));
+    b.setAttribute("aria-checked","true"); pack=b.dataset.pack; updateSummary();
+  }));
+  $("#back4").addEventListener("click",()=>show(3));
+  $("#topay").addEventListener("click",()=>{ updateSummary(); show(5); });
+
+  // Étape 5
   $("#restart").addEventListener("click",()=>{
     tel.value=""; send.disabled=true; codeInputs.forEach(i=>i.value=""); verify.disabled=true;
-    $$(".lang").forEach(x=>x.setAttribute("aria-pressed","false")); finish.disabled=true;
-    maskedVal="+1 ••• ••• ••••"; updateCodeSub(); show(1);
+    $$(".lang").forEach(x=>x.setAttribute("aria-pressed","false")); tostep4.disabled=true;
+    prem.setAttribute("aria-checked","false"); panel.classList.remove("open"); $("#profile").selectedIndex=0;
+    $$(".pk").forEach(x=>x.setAttribute("aria-checked", x.dataset.pack==="m")); pack="m";
+    maskedVal="+1 ••• ••• ••••"; updateCodeSub(); updateSummary(); show(1);
   });
 
-  // ---- Animation « comment ça marche » : boucle des 5 tableaux ----
-  const howto=$("#howto");
-  if(howto){
-    const scenes=["s1","s2","s3","s4","s5"], dur=[2600,1900,2200,1700,3000];
+  // ---- Animation « comment ça marche » : 14 s en boucle, 5 temps ----
+  // 0-3 s pas de réseau · 3-5 s besoin · 5-8 s lien satellite · 8-10,5 s prévision · 10,5-14 s mise à l'abri
+  const A=id=>document.getElementById("a-"+id);
+  if(A("sky")){
+    let f="";
+    for(let x=-4,s=7;x<366;x+=9){ s=(s*9301+49297)%233280; const h=10+(s/233280)*12; f+=`<polygon points="${x-5},182 ${x},${182-h} ${x+5},182"/>`; }
+    A("forest").innerHTML=f;
+    let r="";
+    for(let i=0;i<34;i++){ const x=20+(i*37)%190, y=60+(i*53)%140; r+=`<line x1="${x}" y1="${y}" x2="${x-3}" y2="${y+10}"/>`; }
+    A("rain").innerHTML=r;
+
+    const pw=(t,k)=>{ if(t<=k[0][0])return k[0][1];
+      for(let i=1;i<k.length;i++){ if(t<=k[i][0]){ const[a,va]=k[i-1],[b,vb]=k[i]; let u=(t-a)/(b-a); u=u*u*(3-2*u);
+        return Array.isArray(va)?va.map((x,j)=>x+(vb[j]-x)*u):va+(vb-va)*u; } }
+      return k[k.length-1][1]; };
+    const rgb=a=>`rgb(${a.map(Math.round).join(",")})`;
+    const D=[42,69,54],G=[30,52,41],S=[14,26,22],C=[48,80,63];
+    const SKY=[[0,D],[3,D],[10,G],[11.5,S],[12.8,S],[13.5,C],[14,C]];
+    const LAKE=[[0,[26,47,39]],[3,[26,47,39]],[10,[21,38,31]],[11.5,[12,22,18]],[12.8,[12,22,18]],[13.5,[32,58,47]],[14,[32,58,47]]];
+    const dotsA=[...document.querySelectorAll(".a-dot")];
+    const set=(el,a,v)=>el.setAttribute(a,v);
+
+    function draw(t){
+      set(A("sky"),"fill",rgb(pw(t,SKY))); set(A("lake"),"fill",rgb(pw(t,LAKE)));
+      set(A("sun"),"opacity",pw(t,[[0,.9],[3,.9],[6,0],[12.8,0],[13.6,.9]])); set(A("sun"),"cy",pw(t,[[0,106],[3,88]]));
+      const sx=pw(t,[[4.5,-20],[9,200]]), sy=pw(t,[[4.5,40],[6.7,16],[9,34]]);
+      set(A("sat"),"transform",`translate(${sx} ${sy})`);
+      [["up",-1],["down",1]].forEach(([id,dir])=>{ const e=A(id); set(e,"x2",sx); set(e,"y2",sy+4); set(e,"stroke-dashoffset",dir*t*40); });
+      set(A("up"),"opacity",pw(t,[[5.4,0],[5.7,1],[6.7,1],[7,0]]));
+      set(A("down"),"opacity",pw(t,[[6.9,0],[7.2,1],[8,1],[8.3,0]]));
+      const up=pw(t,[[2.8,0],[3.2,1],[10.4,1],[10.8,0]]); set(A("armUp"),"opacity",up); set(A("armDown"),"opacity",1-up);
+      const ps=pw(t,[[3,0],[3.5,1],[10.4,1],[10.9,0]]); set(A("phone"),"transform",`translate(283 120) scale(${Math.max(ps,.001)}) translate(-283 -120)`);
+      set(A("p1"),"opacity",pw(t,[[4.8,1],[5.1,0]])); set(A("p2"),"opacity",pw(t,[[4.9,0],[5.2,1],[8,1],[8.3,0]])); set(A("p3"),"opacity",pw(t,[[8.1,0],[8.5,1]]));
+      dotsA.forEach((d,i)=>set(d,"opacity",((Math.floor(t*4)+i)%3===0)?1:.3));
+      set(A("storm"),"transform",`translate(${pw(t,[[0,380],[2,360],[10,190],[11.5,15],[12.8,15],[13.8,-220]])} 0)`);
+      set(A("bolt"),"opacity",(t>12&&t<12.15)||(t>12.35&&t<12.45)?1:0);
+      set(A("rain"),"opacity",pw(t,[[11.3,0],[11.7,1],[12.7,1],[13.1,0]])); set(A("rain"),"transform",`translate(0 ${(t*280)%24-12})`);
+      const hx=pw(t,[[10.8,0],[12,-74]]), bob=(t>10.8&&t<12)?-Math.abs(Math.sin(t*14))*2:0;
+      set(A("walk"),"transform",`translate(${hx} ${bob})`); set(A("walk"),"opacity",pw(t,[[12,1],[12.3,0]]));
+      set(A("glow"),"opacity",pw(t,[[12.2,0],[12.5,.85]]));
+      set(A("veil"),"opacity",t<.6?pw(t,[[0,.8],[.6,0]]):pw(t,[[13.4,0],[14,.8]]));
+    }
+
     const reduce=window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if(reduce){
-      howto.className="howto s1"; // image fixe : le personnage cherche le signal en foret
+      draw(9); // image fixe : la prévision reçue
     }else{
-      let i=0;
-      (function cycle(){
-        const wrap = (i===0);
-        if(wrap) howto.classList.add("reset");   // retour a s1 sans animation inverse
-        howto.classList.remove(...scenes);
-        howto.classList.add(scenes[i]);
-        if(wrap){ void howto.offsetWidth; howto.classList.remove("reset"); }
-        const d=dur[i]; i=(i+1)%scenes.length;
-        setTimeout(cycle,d);
-      })();
+      const LOOP=14; let t=0, last=performance.now();
+      (function loop(now){
+        const dt=Math.min((now-last)/1000,.1); last=now;
+        if(step===1){ t=(t+dt)%LOOP; draw(t); }
+        requestAnimationFrame(loop);
+      })(last);
     }
   }
 
-  setLang("en"); // anglais par defaut
+  setLang("en"); // anglais par défaut
 })();
 </script>
